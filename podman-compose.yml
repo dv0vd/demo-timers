@@ -7,12 +7,10 @@ services:
     env_file:
       - ./.env
     command: sh -c 'cd /app && npm start'
-    ports:
-      - 50010:3000
     networks:
       timers:
-        aliases:
-          - app
+        podman_network:
+          - timers-app
     restart: unless-stopped
     deploy:
       resources:
@@ -28,9 +26,9 @@ services:
       MONGO_INITDB_ROOT_USERNAME: ${TIMERS_DB_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${TIMERS_DB_PASSWORD}
     networks:
-      timers:
+      podman_network:
         aliases:
-          - db
+          - timers-db
     restart: unless-stopped
     deploy:
       resources:
@@ -38,5 +36,5 @@ services:
           cpus: ${TIMERS_DB_CPUS}
           memory: ${TIMERS_DB_MEMORY}
 networks:
-  timers:
-    driver: bridge
+  podman_network:
+    external: true

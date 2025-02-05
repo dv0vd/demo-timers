@@ -17,8 +17,8 @@ services:
         limits:
           cpus: ${TIMERS_APP_CPUS}
           memory: ${TIMERS_APP_MEMORY}
-  depends_on:
-    - db
+    depends_on:
+      - db
   db:
     container_name: timers_db
     image: docker.io/mongo:7.0.16

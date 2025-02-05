@@ -8,7 +8,7 @@ services:
       - ./.env
     command: sh -c 'cd /app && npm run dev'
     ports:
-      - 50100:3000
+      - ${TIMERS_APP_PORT}:3000
     networks:
       timers:
         aliases:
@@ -17,18 +17,16 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 0.25
-          memory: 128M
+          cpus: ${TIMERS_APP_CPUS}
+          memory: ${TIMERS_APP_MEMORY}
     depends_on:
       - db
   db:
     container_name: timers_db
     image: docker.io/mongo:7.0.16
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
-      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - 27017:27017
+      MONGO_INITDB_ROOT_USERNAME: ${TIMERS_DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${TIMERS_DB_PASSWORD}
     networks:
       timers:
         aliases:
@@ -37,8 +35,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 0.5
-          memory: 128M
+          cpus: ${TIMERS_DB_CPUS}
+          memory: ${TIMERS_DB_MEMORY}
 networks:
   timers:
     driver: bridge

@@ -8,10 +8,9 @@ services:
       - ./.env
     command: sh -c 'cd /app && npm start'
     networks:
-      timers:
-        podman_network:
-          - timers-app
-    restart: unless-stopped
+      podman_network:
+        - timers-app
+  restart: unless-stopped
     deploy:
       resources:
         limits:

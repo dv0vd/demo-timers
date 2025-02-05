@@ -11,12 +11,12 @@ services:
       podman_network:
         aliases:
           - timers-app
-  restart: unless-stopped
-  deploy:
-    resources:
-      limits:
-        cpus: ${TIMERS_APP_CPUS}
-        memory: ${TIMERS_APP_MEMORY}
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: ${TIMERS_APP_CPUS}
+          memory: ${TIMERS_APP_MEMORY}
   depends_on:
     - db
   db:

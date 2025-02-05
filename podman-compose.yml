@@ -1,0 +1,44 @@
+services:
+  app:
+    container_name: timers_app
+    image: docker.io/node:20.18.1-bookworm
+    volumes:
+      - ./:/app
+    env_file:
+      - ./.env
+    command: sh -c 'cd /app && npm run dev'
+    ports:
+      - 50100:3000
+    networks:
+      timers:
+        aliases:
+          - app
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: 0.25
+          memory: 128M
+    depends_on:
+      - db
+  db:
+    container_name: timers_db
+    image: docker.io/mongo:7.0.16
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - 27017:27017
+    networks:
+      timers:
+        aliases:
+          - db
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: 0.5
+          memory: 128M
+networks:
+  timers:
+    driver: bridge

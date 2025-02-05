@@ -9,15 +9,16 @@ services:
     command: sh -c 'cd /app && npm start'
     networks:
       podman_network:
-        - timers-app
+        aliases:
+          - timers-app
   restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          cpus: ${TIMERS_APP_CPUS}
-          memory: ${TIMERS_APP_MEMORY}
-    depends_on:
-      - db
+  deploy:
+    resources:
+      limits:
+        cpus: ${TIMERS_APP_CPUS}
+        memory: ${TIMERS_APP_MEMORY}
+  depends_on:
+    - db
   db:
     container_name: timers_db
     image: docker.io/mongo:7.0.16

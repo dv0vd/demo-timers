@@ -1,9 +1,11 @@
 .DEFAULT_GOAL := help
 
 init:
-	podman-compose run --rm app sh -c 'cd /app && npm ci --verbose'
-	$(MAKE) restart
-
+	podman run \
+  --rm \
+  -v ./:/app \
+  docker.io/node:20.18.1-bookworm \
+  sh -c 'cd /app && npm ci --verbose'
 
 start:
 	podman-compose up -d

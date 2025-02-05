@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 
 init:
-	podman-compose run app sh -c 'cd /app && npm i --verbose'
+	podman-compose run app sh -c 'cd /app && npm ci --verbose'
 	$(MAKE) restart
 
 

@@ -1,8 +1,7 @@
 .DEFAULT_GOAL := help
 
 init:
-	podman-compose run backend sh -c 'cd /app && npm i --verbose'
-	podman-compose run frontend sh -c 'cd /app && npm i --verbose'
+	podman-compose run app sh -c 'cd /app && npm i --verbose'
 	$(MAKE) restart
 
 

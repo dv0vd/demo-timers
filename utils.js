@@ -1,5 +1,5 @@
 function getMongoConnectionString() {
-  return `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}`;
+  return `mongodb://${process.env.TIMERS_DB_USERNAME}:${process.env.TIMERS_DB_PASSWORD}@${process.env.TIMERS_DB_HOST}:27017`;
 }
 
 module.exports = {

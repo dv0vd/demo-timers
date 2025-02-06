@@ -22,9 +22,6 @@ services:
   db:
     container_name: timers_db
     image: docker.io/mongo:7.0.16
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${TIMERS_DB_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${TIMERS_DB_PASSWORD}
     networks:
       podman_network:
         aliases:

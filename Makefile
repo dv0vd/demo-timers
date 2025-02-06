@@ -4,7 +4,7 @@ init:
 	podman run \
   --rm \
   -v ./:/app \
-  docker.io/node:20.18.1-bookworm \
+  docker.io/node:20.18.2 \
   sh -c 'cd /app && npm ci --verbose'
 
 start:

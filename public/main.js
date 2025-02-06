@@ -1,6 +1,8 @@
 /*global UIkit, Vue */
 
 (() => {
+  const basePath = '/demo/timers';
+
   let websocketClient = null
 
   const notification = (config) =>
@@ -48,7 +50,7 @@
       createTimer() {
         const description = this.desc;
         this.desc = "";
-        fetchJson("/api/timers", {
+        fetchJson(`${basePath}/api/timers`, {
           method: "post",
           headers: {
             "Content-Type": "application/json",
@@ -59,7 +61,7 @@
         });
       },
       stopTimer(id) {
-        fetchJson(`/api/timers/${id}/stop`, {
+        fetchJson(`${basePath}/api/timers/${id}/stop`, {
           method: "post",
         }).then(() => {
           info(`Stopped the timer [${id}]`);
@@ -86,7 +88,7 @@
         const wsProtocol = location.protocol === 'https' ? 'wss' : 'ws';
 
         try {
-          websocketClient = new WebSocket(`${wsProtocol}://${location.host}`)
+          websocketClient = new WebSocket(`${wsProtocol}://${location.host}${basePath}`)
         } catch (err) {
           //
         }

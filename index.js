@@ -1,3 +1,5 @@
+const { getBasePath } = require('./utils');
+
 require('dotenv').config()
 
 function appInit() {
@@ -10,9 +12,9 @@ function appInit() {
   app.set("view engine", "njk");
 
   app.use(express.json());
-  app.use(express.static("public"));
-  app.use(webRouter)
-  app.use(apiRouter)
+  app.use(getBasePath(), express.static("public"));
+  app.use(getBasePath(), webRouter)
+  app.use(getBasePath(), apiRouter)
 
   const port = process.env.PORT || 3000;
   const server = http.createServer(app)

@@ -90,7 +90,7 @@
         try {
           websocketClient = new WebSocket(`${wsProtocol}://${location.host}${basePath}`)
         } catch (err) {
-          //
+          console.error(err)
         }
 
         websocketClient.addEventListener('message', (msg) => {

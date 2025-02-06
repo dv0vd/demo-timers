@@ -1,7 +1,7 @@
 services:
   app:
     container_name: timers_app
-    image: docker.io/node:20.18.1-bookworm
+    image: docker.io/node:20.18.2
     volumes:
       - ./:/app
     env_file:

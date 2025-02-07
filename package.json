@@ -1,7 +1,7 @@
 {
-  "name": "timers-noauth",
+  "name": "timers",
   "version": "1.0.0",
-  "author": "",
+  "author": "Viacheslav Davydov <dv0vd@dv0vd.xyz> (https://dv0vd.xyz)",
   "description": "",
   "keywords": [],
   "main": "index.js",

@@ -12,6 +12,8 @@ services:
         aliases:
           - timers-app
     restart: unless-stopped
+    # ports:
+    #   - 3000:3000
     deploy:
       resources:
         limits:
@@ -35,3 +37,4 @@ services:
 networks:
   podman_network:
     external: true
+    # driver: bridge

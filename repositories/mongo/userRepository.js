@@ -3,7 +3,7 @@ require('dotenv').config()
 const { getMongoConnectionString } = require('../../utils')
 const { MongoClient, ObjectId } = require('mongodb')
 const client = new MongoClient(getMongoConnectionString())
-const db = client.db(process.env.DB_NAME)
+const db = client.db(process.env.TIMERS_DB_NAME)
 
 module.exports = {
   createSession: async function (userId) {

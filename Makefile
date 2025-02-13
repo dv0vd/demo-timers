@@ -22,8 +22,8 @@ restart: stop start
 GREEN='\033[1;32m'
 WHITE='\033[1;37m'
 help:
-	@echo ${GREEN}'	'init${WHITE}'                               '—' 'инициализация' 'проекта;
-	@echo ${GREEN}'	'start${WHITE}'                               '—' 'запуск' 'БД' 'и' 'бэкэнда;
-	@echo ${GREEN}'	'start-app${WHITE}'                               '—' 'запуск' 'бэкэнда;
-	@echo ${GREEN}'	'stop${WHITE}'                                '—' 'остановка' 'БД' 'и' 'бэкэнда;
-	@echo ${GREEN}'	'restart${WHITE}'                             '—' 'рестарт' 'БД' 'и' 'бэкэнда;
+	@echo -e ${GREEN}init'             '${WHITE}— initialize the project
+	@echo -e ${GREEN}start'            '${WHITE}— start the project
+	@echo -e ${GREEN}start-app'        '${WHITE}— start the project without a database
+	@echo -e ${GREEN}stop'             '${WHITE}— stop the project
+	@echo -e ${GREEN}restart'          '${WHITE}— restart the project

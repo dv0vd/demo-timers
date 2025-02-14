@@ -1,4 +1,5 @@
 .DEFAULT_GOAL := help
+.ONESHELL:
 
 init:
 	podman run \
@@ -22,8 +23,8 @@ restart: stop start
 GREEN='\033[1;32m'
 WHITE='\033[1;37m'
 help:
-	@echo -e ${GREEN}init'             '${WHITE}— initialize the project
-	@echo -e ${GREEN}start'            '${WHITE}— start the project
-	@echo -e ${GREEN}start-app'        '${WHITE}— start the project without a database
-	@echo -e ${GREEN}stop'             '${WHITE}— stop the project
-	@echo -e ${GREEN}restart'          '${WHITE}— restart the project
+	@echo ${GREEN}init'             '${WHITE}— initialize the project
+	@echo ${GREEN}start'            '${WHITE}— start the project
+	@echo ${GREEN}start-app'        '${WHITE}— start the project without a database
+	@echo ${GREEN}stop'             '${WHITE}— stop the project
+	@echo ${GREEN}restart'          '${WHITE}— restart the project

@@ -16,10 +16,10 @@
       }
     </style>
     <script>
-        if (window.location.pathname === '/login') {
+        if (window.location.pathname.endsWith('login')) {
           window.history.replaceState({}, document.title, '/');
         }
-        if (window.location.pathname === '/signup') {
+        if (window.location.pathname.endsWith('signup')) {
           window.history.replaceState({}, document.title, '/');
         }
       </script>

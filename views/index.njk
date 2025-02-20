@@ -16,13 +16,14 @@
       }
     </style>
     <script>
-        if (window.location.pathname.endsWith('login')) {
-          window.history.replaceState({}, document.title, '/');
-        }
-        if (window.location.pathname.endsWith('signup')) {
-          window.history.replaceState({}, document.title, '/');
-        }
-      </script>
+      const basePath = '/demo/timers';
+      if (window.location.pathname.endsWith('login')) {
+        window.history.replaceState({}, document.title, basePath);
+      }
+      if (window.location.pathname.endsWith('signup')) {
+        window.history.replaceState({}, document.title, basePath);
+      }
+    </script>
   </head>
   <body>
     [% if user %]

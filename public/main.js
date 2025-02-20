@@ -1,8 +1,6 @@
 /*global UIkit, Vue */
 
 (() => {
-  const basePath = '/demo/timers';
-
   let websocketClient = null
 
   const notification = (config) =>

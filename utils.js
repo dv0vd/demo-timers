@@ -1,5 +1,5 @@
 function getBasePath() {
-  return '/demo/timers';
+  return '/demo/timers/';
 }
 
 function getMongoConnectionString() {

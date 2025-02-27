@@ -1,4 +1,4 @@
-const { getBasePath } = require('./utils');
+const { getBasePath, getSIDCookieName } = require('./utils');
 
 require('dotenv').config()
 
@@ -57,7 +57,7 @@ function socketsInit(server) {
   server.on('upgrade', (req, socket, head) => {
     const cookie = require('cookie')
 
-    const sessionId = cookie.parse(req.headers['cookie'])?.SID
+    const sessionId = cookie.parse(req.headers['cookie'])[getSIDCookieName()]
     if (!sessionId) {
       socket.write('HTTP/1.1 401 Unauthorized\r\n\r\n');
       socket.destroy();

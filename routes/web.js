@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 
 const userService = require("../services/userService")
 const socketService = require("../services/socketService");
-const { getBasePath } = require("../utils");
+const { getBasePath, getSIDCookieName } = require("../utils");
 
 const router = express.Router();
 router.use(cookieParser());
@@ -25,7 +25,7 @@ router.post("/login", bodyParser.urlencoded({ extended: true }), async (req, res
 
   const sessionId = await userService.createSession(user.id);
 
-  return res.cookie("SID", sessionId, { httpOnly: true }).redirect(getBasePath());
+  return res.cookie(getSIDCookieName(), sessionId, { httpOnly: true }).redirect(getBasePath());
 });
 
 router.get("/logout", async (req, res) => {
@@ -36,7 +36,7 @@ router.get("/logout", async (req, res) => {
     await socketService.deleteSocketBySessionId(sessionId);
   }
 
-  return res.clearCookie("SID").redirect(getBasePath());
+  return res.clearCookie(getSIDCookieName()).redirect(getBasePath());
 });
 
 router.post("/signup", bodyParser.urlencoded({ extended: true }), async (req, res) => {
@@ -53,7 +53,7 @@ router.post("/signup", bodyParser.urlencoded({ extended: true }), async (req, re
   const user = await userService.register(username, req.body.password);
   const sessionId = await userService.createSession(user.id);
 
-  return res.cookie("SID", sessionId, { httpOnly: true }).redirect(getBasePath());
+  return res.cookie(getSIDCookieName(), sessionId, { httpOnly: true }).redirect(getBasePath());
 });
 
 module.exports = router;

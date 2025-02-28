@@ -29,7 +29,7 @@ router.post("/login", bodyParser.urlencoded({ extended: true }), async (req, res
 });
 
 router.get("/logout", async (req, res) => {
-  const sessionId = req.cookies.SID
+  const sessionId = req.cookies[getSIDCookieName()]
 
   if (sessionId) {
     await userService.deleteSession(sessionId);

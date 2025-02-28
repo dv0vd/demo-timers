@@ -1,8 +1,9 @@
 const userRepository = require('../repositories/mongo/userRepository')
+const { getSIDCookieName } = require('../utils');
 
 module.exports = {
   auth: async function (req, res, next) {
-    const sessionId = req.cookies.SID;
+    const sessionId = req.cookies[getSIDCookieName()];
     if (sessionId === undefined) {
       return next();
     }

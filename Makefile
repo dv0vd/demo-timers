@@ -22,9 +22,10 @@ restart: stop start
 
 GREEN='\033[1;32m'
 WHITE='\033[1;37m'
+RESET='\033[0m'
 help:
-	@echo ${GREEN}init'             '${WHITE}— initialize the project
-	@echo ${GREEN}start'            '${WHITE}— start the project
-	@echo ${GREEN}start-app'        '${WHITE}— start the project without a database
-	@echo ${GREEN}stop'             '${WHITE}— stop the project
-	@echo ${GREEN}restart'          '${WHITE}— restart the project
+	@echo ${GREEN}init'             '${WHITE}— initialize the project${RESET}
+	@echo ${GREEN}start'            '${WHITE}— start the project${RESET}
+	@echo ${GREEN}start-app'        '${WHITE}— start the project without a database${RESET}
+	@echo ${GREEN}stop'             '${WHITE}— stop the project${RESET}
+	@echo ${GREEN}restart'          '${WHITE}— restart the project${RESET}

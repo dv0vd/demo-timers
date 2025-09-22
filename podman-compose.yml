@@ -12,15 +12,13 @@ services:
         aliases:
           - timers-app
     restart: unless-stopped
-    # ports:
-    #   - 3000:3000
+    ports:
+      - 3000:3000
     deploy:
       resources:
         limits:
           cpus: ${TIMERS_APP_CPUS}
           memory: ${TIMERS_APP_MEMORY}
-    # depends_on:
-    #   - db
   db:
     container_name: timers_db
     image: docker.io/mongo:7.0.16
@@ -36,5 +34,4 @@ services:
           memory: ${TIMERS_DB_MEMORY}
 networks:
   podman_network:
-    external: true
-    # driver: bridge
+    driver: bridge

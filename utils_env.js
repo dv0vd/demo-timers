@@ -1,9 +1,9 @@
 function getBasePath() {
-  return '/demo/timers/';
+  return '$BASE_PATH';
 }
 
 function getMongoConnectionString() {
-  return `mongodb://${process.env.TIMERS_DB_HOST}:27017`;
+  return `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}`;
 }
 
 function getSIDCookieName() {

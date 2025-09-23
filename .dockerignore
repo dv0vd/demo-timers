@@ -1,0 +1,11 @@
+.env
+node_modules/
+README.md
+podman-compose.yml
+Makefile
+Containerfile
+.gitignore
+.editorconfig
+.eslintignore
+.eslintrc.json
+.prettierrc.json

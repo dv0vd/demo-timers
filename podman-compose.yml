@@ -17,8 +17,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: ${TIMERS_APP_CPUS}
-          memory: ${TIMERS_APP_MEMORY}
+          cpus: ${APP_CPUS}
+          memory: ${APP_MEMORY}
   db:
     container_name: timers_db
     image: docker.io/mongo:7.0.16
@@ -30,8 +30,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: ${TIMERS_DB_CPUS}
-          memory: ${TIMERS_DB_MEMORY}
+          cpus: ${DB_CPUS}
+          memory: ${DB_MEMORY}
 networks:
   podman_network:
     driver: bridge

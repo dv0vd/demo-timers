@@ -104,3 +104,6 @@ dist
 .tern-port
 
 *.sample.js
+
+utils.js
+views/index.njk

@@ -9,6 +9,7 @@ init:
   sh -c 'cd /app && npm ci --verbose'
 
 start:
+	set -a; . ./.env; set +a; envsubst < ./utils_env.js > ./utils.js; envsubst < ./views/index_env.njk > ./views/index.njk
 	podman-compose up -d
 
 start-app:

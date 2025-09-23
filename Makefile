@@ -12,9 +12,6 @@ start:
 	set -a; . ./.env; set +a; envsubst < ./utils_env.js > ./utils.js; envsubst < ./views/index_env.njk > ./views/index.njk
 	podman-compose up -d
 
-start-app:
-	podman-compose up -d app
-
 stop:
 	podman-compose down
 
@@ -27,6 +24,5 @@ RESET='\033[0m'
 help:
 	@echo ${GREEN}init'             '${WHITE}— initialize the project${RESET}
 	@echo ${GREEN}start'            '${WHITE}— start the project${RESET}
-	@echo ${GREEN}start-app'        '${WHITE}— start the project without a database${RESET}
 	@echo ${GREEN}stop'             '${WHITE}— stop the project${RESET}
 	@echo ${GREEN}restart'          '${WHITE}— restart the project${RESET}

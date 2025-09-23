@@ -84,7 +84,7 @@
       },
       initWebSockets() {
         try {
-          const protocol = location.protocol === 'https' ? 'wss' : 'ws';
+          const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
 
           websocketClient = new WebSocket(`${protocol}://${location.host}${basePath}`)
         } catch (err) {

@@ -48,7 +48,7 @@
       createTimer() {
         const description = this.desc;
         this.desc = "";
-        fetchJson(`${basePath}/api/timers`, {
+        fetchJson(`${basePath}api/timers`, {
           method: "post",
           headers: {
             "Content-Type": "application/json",
@@ -59,7 +59,7 @@
         });
       },
       stopTimer(id) {
-        fetchJson(`${basePath}/api/timers/${id}/stop`, {
+        fetchJson(`${basePath}api/timers/${id}/stop`, {
           method: "post",
         }).then(() => {
           info(`Stopped the timer [${id}]`);
@@ -84,7 +84,9 @@
       },
       initWebSockets() {
         try {
-          websocketClient = new WebSocket(`wss://${location.host}${basePath}`)
+          const protocol = location.protocol === 'https' ? 'wss' : 'ws';
+
+          websocketClient = new WebSocket(`${protocol}://${location.host}${basePath}`)
         } catch (err) {
           console.error(err)
         }

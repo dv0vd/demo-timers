@@ -1,6 +1,6 @@
 services:
   app:
-    container_name: timers_app
+    container_name: app
     image: docker.io/node:24.5.0-alpine
     volumes:
       - ./:/app
@@ -8,9 +8,9 @@ services:
       - ./.env
     command: sh -c 'cd /app && npm start'
     networks:
-      podman_network:
+      timers_network:
         aliases:
-          - timers-app
+          - app
     restart: unless-stopped
     ports:
       - 3000:3000
@@ -20,12 +20,12 @@ services:
           cpus: ${APP_CPUS}
           memory: ${APP_MEMORY}
   db:
-    container_name: timers_db
+    container_name: db
     image: docker.io/mongo:7.0.16
     networks:
-      podman_network:
+      timers_network:
         aliases:
-          - timers-db
+          - db
     restart: unless-stopped
     deploy:
       resources:
@@ -33,5 +33,5 @@ services:
           cpus: ${DB_CPUS}
           memory: ${DB_MEMORY}
 networks:
-  podman_network:
+  timers_network:
     driver: bridge

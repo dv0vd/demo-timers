@@ -90,6 +90,7 @@ async function handleSocketCloseEvent(ws, req) {
 async function handleSocketMessageEvent(ws, msg, userId) {
   const message = JSON.parse(msg)
   const messageType = message?.type
+  let allTimers = [];
 
   switch (messageType) {
     case 'old_timers':

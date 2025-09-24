@@ -1,6 +1,6 @@
 # Timers
 
-## Live demo: https://dv0vd.xyz/demo/timers 
+## Live demo: https://dv0vd.dev/demo/timers 
 ## Podman/Docker image: https://hub.docker.com/r/dv0vd/demo-timers
 
 A timer management website built with Node.js, Express, the service-repository pattern, and WebSockets.
@@ -16,16 +16,16 @@ A timer management website built with Node.js, Express, the service-repository p
 ### Podman image (use your own MongoDB)
 Run the container with your MongoDB:
 ```
-  podman run \
-		-d \
-		-e DB_HOST=<your-mongodb-host> \
-		-e DB_PORT=<your-mongodb-port> \
-		-e DB_NAME=<database-name> \
-		-e BASE_PATH='/' \
-		--name demo-timers \
-		--restart unless-stopped \
-		--memory=128M \
-		--cpus=0.25  \
-		docker.io/dv0vd/demo-timers
+podman run \
+  -d \
+  -e DB_HOST=<your-mongodb-host> \
+  -e DB_PORT=<your-mongodb-port> \
+  -e DB_NAME=<database-name> \
+  -e BASE_PATH='/' \
+  --name demo-timers \
+  --restart unless-stopped \
+  --memory=128M \
+  --cpus=0.25  \
+  docker.io/dv0vd/demo-timers
 ```
 

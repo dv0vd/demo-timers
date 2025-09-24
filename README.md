@@ -14,11 +14,12 @@ A timer management website built with Node.js, Express, the service-repository p
 4) To stop or restart the project, use `make stop` and `make restart`, respectively.
 
 ### Podman image (use your own MongoDB)
-Run the container with your MongoDB host and database name:
+Run the container with your MongoDB:
 ```
   podman run \
 		-d \
 		-e DB_HOST=<your-mongodb-host> \
+		-e DB_PORT=<your-mongodb-port> \
 		-e DB_NAME=<database-name> \
 		-e BASE_PATH='/' \
 		--name demo-timers \

@@ -1,6 +1,6 @@
 services:
   app:
-    container_name: app
+    container_name: timers-app
     image: docker.io/node:24.5.0-alpine
     volumes:
       - ./:/app
@@ -20,7 +20,7 @@ services:
           cpus: ${APP_CPUS}
           memory: ${APP_MEMORY}
   db:
-    container_name: db
+    container_name: timers-db
     image: docker.io/mongo:7.0.16
     networks:
       timers_network:

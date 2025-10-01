@@ -32,6 +32,12 @@ services:
         limits:
           cpus: ${DB_CPUS}
           memory: ${DB_MEMORY}
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 30s
+      retries: 3
+      start_period: 30s
 networks:
   timers_network:
     driver: bridge

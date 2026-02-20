@@ -1,7 +1,7 @@
 {
   "name": "timers",
   "version": "1.0.0",
-  "author": "Viacheslav Davydov <dv0vd@dv0vd.xyz> (https://dv0vd.xyz)",
+  "author": "Viacheslav Davydov <viacheslav_davydov@dv0vd.dev> (https://dv0vd.dev)",
   "description": "",
   "keywords": [],
   "main": "index.js",
